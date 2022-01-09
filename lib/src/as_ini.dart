@@ -1,6 +1,5 @@
 import 'dart:convert';
 import 'dart:io';
-import 'package:flutter/foundation.dart';
 import 'package:ini/ini.dart';
 
 import 'read_writer_contract.dart';
@@ -30,8 +29,8 @@ class AsIni implements ReadWriter {
             bounds['bottom'] =
                 double.parse(config.get('window', 'bounds.bottom')!);
             result['bounds'] = bounds;
-            result['allwaysOnTop'] =
-                config.get('window', 'allwaysOnTop') == 'true';
+            result['alwaysOnTop'] =
+                config.get('window', 'alwaysOnTop') == 'true';
             result['fullscreen'] = config.get('window', 'fullscreen') == 'true';
             result['maximized'] = config.get('window', 'maximized') == 'true';
           }
@@ -54,7 +53,7 @@ class AsIni implements ReadWriter {
       config.set('window', 'bounds.top', data.bounds.top.toString());
       config.set('window', 'bounds.right', data.bounds.right.toString());
       config.set('window', 'bounds.bottom', data.bounds.bottom.toString());
-      config.set('window', 'allwaysOnTop', data.allwaysOnTop.toString());
+      config.set('window', 'alwaysOnTop', data.alwaysOnTop.toString());
       config.set('window', 'fullscreen', data.fullscreen.toString());
       config.set('window', 'maximized', data.maximized.toString());
       final file = File(filename);

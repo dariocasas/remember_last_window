@@ -31,7 +31,7 @@ class RememberLastWindow extends WindowListener {
       await windowManager.setBounds(loadLastWindowBounds.asRect());
       await windowManager.setFullScreen(rememberLastWindowContract.fullscrean);
       await windowManager
-          .setAlwaysOnTop(rememberLastWindowContract.allwaysOnTop);
+          .setAlwaysOnTop(rememberLastWindowContract.alwaysOnTop);
       if (rememberLastWindowContract.maximized) {
         await windowManager.maximize();
       }

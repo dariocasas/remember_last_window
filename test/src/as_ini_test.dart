@@ -10,7 +10,7 @@ void main() {
     const filename = '.test.ini';
     var windowModel = WindowModel(
         bounds: const RectModel(left: 1.0, top: 2.0, right: 3.0, bottom: 4.0),
-        allwaysOnTop: true,
+        alwaysOnTop: true,
         maximized: true,
         fullscreen: true);
 
@@ -31,15 +31,14 @@ void main() {
 
       final fileStr1 = await File(filename).readAsString(encoding: utf8);
 
-      const fileStr2 =
-          '''
+      const fileStr2 = '''
 
 [window]
 bounds.left = 1.0
 bounds.top = 2.0
 bounds.right = 3.0
 bounds.bottom = 4.0
-allwaysOnTop = true
+alwaysOnTop = true
 fullscreen = true
 maximized = true
 ''';

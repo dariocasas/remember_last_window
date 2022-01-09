@@ -1,5 +1,5 @@
 name: remember_last_window
-description: remember_last_window saves bounds, allwaysOnTop, maximized and fullscreen properties for desktop application main window, and set them up at app's start up.
+description: remember_last_window saves bounds, alwaysOnTop, maximized and fullscreen properties for desktop application main window, and set them up at app's start up.
 version: 0.0.1
 homepage:
 

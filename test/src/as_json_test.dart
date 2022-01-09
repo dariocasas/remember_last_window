@@ -31,7 +31,7 @@ void main() {
 
       final fileStr1 = await File(filename).readAsString(encoding: utf8);
       const fileStr2 =
-          '"{\\"bounds\\":{\\"left\\":1.0,\\"top\\":2.0,\\"right\\":3.0,\\"bottom\\":4.0},\\"maximized\\":true,\\"fullscreen\\":true,\\"allwaysOnTop\\":false}"';
+          '"{\\"bounds\\":{\\"left\\":1.0,\\"top\\":2.0,\\"right\\":3.0,\\"bottom\\":4.0},\\"maximized\\":true,\\"fullscreen\\":true,\\"alwaysOnTop\\":false}"';
 
       expect(fileStr1, equals(fileStr2));
     });

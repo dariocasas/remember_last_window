@@ -12,7 +12,7 @@ and the Flutter guide for
 -->
 # remember_last_window
 
-This package saves bounds, allwaysOnTop, maximized and fullscreen properties for [Flutter desktop](https://flutter.dev/multi-platform/desktop) application main window, and set them back at application start up.
+This package saves bounds, alwaysOnTop, maximized and fullscreen properties for [Flutter desktop](https://flutter.dev/multi-platform/desktop) application main window, and set them back at application start up.
 
 ## Features
 

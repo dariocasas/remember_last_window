@@ -9,6 +9,6 @@ abstract class RememberLastWindowContract {
   bool get maximized;
   set fullscrean(bool value);
   bool get fullscrean;
-  set allwaysOnTop(bool value);
-  bool get allwaysOnTop;
+  set alwaysOnTop(bool value);
+  bool get alwaysOnTop;
 }

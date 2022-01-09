@@ -92,11 +92,11 @@ class AutoSave implements RememberLastWindowContract {
   bool get fullscrean => _window.fullscreen;
 
   @override
-  set allwaysOnTop(bool value) {
+  set alwaysOnTop(bool value) {
     _dirty = true;
-    _window.allwaysOnTop = value;
+    _window.alwaysOnTop = value;
   }
 
   @override
-  bool get allwaysOnTop => _window.allwaysOnTop;
+  bool get alwaysOnTop => _window.alwaysOnTop;
 }
