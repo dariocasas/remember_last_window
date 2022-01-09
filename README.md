@@ -10,30 +10,75 @@ For general information about developing packages, see the Dart guide for
 and the Flutter guide for
 [developing packages and plugins](https://flutter.dev/developing-packages). 
 -->
+#remember_last_window
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+This package saves bounds, allwaysOnTop, maximized and fullscreen properties for [Flutter desktop](https://flutter.dev/multi-platform/desktop) application main window, and set them back at application start up.
 
 ## Features
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+In AutoSave class, is possible to configure what kind of file will be used to save information: AsJson() or AsIni(). Optionally, is possible to define custom file name, as well as the time interval used to check and save modifications..
 
 ## Getting started
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+This package relies on [leanflutter/window_manager](https://github.com/leanflutter/window_manager), please, see package details.
 
 ## Usage
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder. 
-
 ```dart
-const like = 'sample';
+import 'app.dart';
+import 'package:flutter/material.dart';
+import 'package:window_manager/window_manager.dart';
+import 'package:remember_last_window/remember_last_window.dart';
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await windowManager.ensureInitialized();
+
+  windowManager.addListener(
+    RememberLastWindow(
+      AutoSave(
+        readWriter: AsJson(),
+        autoSave: true,
+      ),
+    ),
+  );
+
+  runApp(
+    const App(),
+  );
+}
 ```
 
-## Additional information
+##### Windows
 
-TODO: Tell users more about the package: where to find more information, how to 
-contribute to the package, how to file issues, what response they can expect 
-from the package authors, and more.
+To hide initial window that will be displayed before it can be repositioned this file change is necessary. Side effects?
+
+`windows/runner/main.cpp`
+
+```diff
+int APIENTRY wWinMain(_In_ HINSTANCE instance, _In_opt_ HINSTANCE prev,
+                      _In_ wchar_t *command_line, _In_ int show_command) {
+  // ...
+
+-  Win32Window::Point origin(10, 10);
+-  Win32Window::Size size(1280, 720);
++  Win32Window::Point origin(0x7f00, 0x7f00);
++  Win32Window::Size size(137, 38);
+
+  // ...
+
+  return EXIT_SUCCESS;
+}
+```
+
+## Platform Support
+
+| Linux | macOS | Windows |
+| :---: | :---: | :-----: |
+|   ❓   |   ❓   |    ✔️    |
+
+
+## License
+
+[MIT](./LICENSE)
